@@ -1,184 +1,202 @@
-# **bAItherix - BECIA v4.0 + PaxCore SSPS v1.0**    
-### **A Standardized Session State Persistence System (SSPS) and Intelligence Architecture for Large Language Model Agents**
+# BECIA v4 — Behavioural, Emotional & Contextual Intelligence Architecture
+### With SSPS (Session State Persistence System) and PaxCore Memory Kernel
+---
 
-**BECIA** (Behavioral & Cognitive Internal Architecture) and **PaxCore SSPS** (Session State Persistence System) together form a lightweight, deterministic architecture for building AI agents with:
+## Overview
 
-- stable internal session state  
-- reproducible behavior  
-- portable memory  
-- full reconstruction from persistent snapshots  
+This repository contains the public specifications and documentation for:
 
-This repository contains the **first working implementation** of **SSPS v1.0**, a minimal system for agent continuity that is:
+- **BECIA v4** — an Intelligence Architecture for LLM‑based agents  
+- **SSPS v1.0** — a deterministic snapshot protocol for agent state  
+- **PaxCore v1.0** — a durable memory kernel implementing SSPS
+- 
+Together, these components define an deterministic runtime layer architecure
+that structures cognition, behaviour, emotion, context, and continuity for any LLM‑based systems.
+They are model‑agnostic, runtime‑agnostic, and designed for long‑term
+interoperability across platforms.
 
-- model‑agnostic  
-- runtime‑agnostic  
-- storage‑agnostic  
-- deterministic  
-- fully testable end‑to‑end  
-
-The system is intentionally small, transparent, and auditable — designed to be understood, extended, and adopted as a standard.
+This repository contains **public specifications only**.  
+No proprietary implementation details are included.
 
 ---
 
-## **Why this exists**
+## Current Versions
 
-Most agent architectures today suffer from the same fundamental limitation:
+| Component | Version | Document |
+|----------|---------|----------|
+| **BECIA** | v4.0 | [`docs/becia_architecture.md`](docs/becia_architecture.md) |
+| **SSPS** | v1.0 | [`docs/ssps_protocol.md`](docs/ssps_protocol.md) |
+| **PaxCore** | v1.0 | [`docs/paxcore_spec.md`](docs/paxcore_spec.md) |
+| **Snapshot Profile** | v4.0 | [`docs/snapshot_profile_becia_v4.md`](docs/snapshot_profile_becia_v4.md) |
+| **Roadmap** | Latest | [`docs/roadmap.md`](docs/roadmap.md) |
+| **Glossary** | Latest | [`docs/glossary.md`](docs/glossary.md) |
 
-> They cannot reliably *remember*, *reconstruct*, or *continue* their internal session state.
-
-Every system reinvents memory differently.  
-Every system is brittle.  
-Every system is opaque.  
-None provide a portable, deterministic representation of “who the agent is” across time.
-
-**SSPS solves this by defining a minimal, deterministic representation of an agent’s session state**, enabling:
-
-- stable continuity  
-- safe reconstruction  
-- predictable behavior  
-- cross‑runtime portability  
-
-**BECIA v4.0** is the reference runtime that produces and consumes SSPS session snapshots.  
-**PaxCore** is the reference persistence backend.
+For definitions of all key terms, see:  
+👉 [`docs/glossary.md`](docs/glossary.md)
 
 ---
 
-## **What’s included**
-
-### **BECIA v4.0**
-- Deterministic runtime  
-- Core state builder  
-- Reconstruction engine  
-- SSPS memory layer  
-- Schema validator  
-- Session snapshot generator  
-
-### **PaxCore SSPS v1.0**
-- In‑memory persistence backend  
-- Snapshot validator  
-- BECIA adapter  
-- SSPS schema (JSON)  
-- Minimal core implementation  
-
-### **Tests**
-- Full integration test (BECIA ↔ PaxCore)  
-- Reconstruction test  
-- End‑to‑end runtime test  
-
-All tests pass:
+## Quick Start — Example Workflow
 ```
-3 passed in 2.67s
+User interacts with agent
+↓
+BECIA v4 processes input through L0–L5
+↓
+BECIA produces a structured core_state
+↓
+SSPS serializes core_state → snapshot
+↓
+PaxCore stores snapshot durably
+↓
+Next session begins
+↓
+PaxCore loads snapshot
+↓
+SSPS reconstructs core_state
+↓
+BECIA resumes with continuity
 ```
 
-This confirms the full cycle:
-```
-**Session Snapshot → PaxCore → Reconstruction → Runtime**
-```
-is stable, deterministic, and lossless.
+This illustrates the full continuity pipeline:
+
+**BECIA (state) → SSPS (serialization) → PaxCore (storage) → SSPS (restore) → BECIA (continuity)**
+
+A visual diagram is available in the documentation.
 
 ---
 
-## **Architecture Overview**
+## Documentation Structure
 ```
-
-+------------------+        SSPS Session Snapshot        +------------------+
-|     BECIA v4     |  -------------------------------->  |     PaxCore      |
-|  (Runtime Layer) |                                      |   (Persistence)  |
-+------------------+                                      +------------------+
-        ^                                                           |
-        |                                                           |
-        +---------------- Reconstruction <---------------------------+
-
-```
-### **BECIA responsibilities**
-- Build core session state  
-- Validate state  
-- Generate SSPS snapshot  
-- Reconstruct from snapshot  
-- Provide deterministic runtime behavior  
-
-### **PaxCore responsibilities**
-- Validate snapshot schema  
-- Persist session state  
-- Return snapshot for reconstruction  
-- Guarantee structural continuity  
-
----
-
-## **SSPS Session Snapshot (v1.0)**
-
-A minimal, deterministic representation of an agent’s **session state**.
-
-Properties:
-
-- JSON‑serializable  
-- Schema‑validated  
-- Portable across runtimes  
-- Portable across storage backends  
-- Sufficient for full reconstruction  
-
-This is the core of the standard.
-
----
-
-## **Project Structure**
-
-becia/
-paxcore/
-integration/
-tests/
 docs/
-pyproject.toml
-
-
----
-
-## **Running Tests**
-```
-pytest -q
-```
-
-Expected output:
-```
-3 passed
+├── becia_architecture.md
+├── ssps_protocol.md
+├── paxcore_spec.md
+├── snapshot_profile_becia_v4.md
+├── roadmap.md
+├── glossary.md
+└── index.md
 ```
 
----
-
-## **Roadmap**
-
-### **v1.0 — Standardization**
-- SSPS v1.0 formal specification  
-- Public documentation  
-- Reference diagrams  
-- Minimal examples  
-
-### **v1.1 — Tooling**
-- Snapshot diffing  
-- Snapshot visualization  
-- Schema evolution  
-
-### **v2.0 — Multi‑agent**
-- Shared memory spaces  
-- Cross‑agent continuity  
-- Multi‑snapshot timelines  
+Each document is self‑contained, versioned, and public‑safe.
 
 ---
 
-## **License**
+## Core Components
 
-Proprietary Software License - All Rights Reserved
+### **BECIA v4 — Intelligence Architecture**
+A deterministic, layered processing pipeline for LLM‑based agents, defining:
+
+- emotional baseline (L0)  
+- input normalization (L1)  
+- cognitive parsing (L2)  
+- contextual integration (L3)  
+- relational continuity (L3.5)  
+- cognitive arc (L4)  
+- adaptive modulation (L4.1)  
+- safety & governance (L5)  
+
+👉 Full spec: [`docs/becia_architecture.md`](docs/becia_architecture.md)
 
 ---
 
-## **Status**
+### **SSPS v1.0 — Snapshot Protocol**
+A minimal, deterministic, privacy‑aligned protocol for serializing agent state.
 
-This project demonstrates the **first working system** for deterministic, portable agent session state persistence and reconstruction.
+SSPS defines:
 
-It is intentionally minimal.  
-It is intentionally transparent.  
-It is intentionally designed to be adopted, extended, and built upon.
+- snapshot structure  
+- validation rules  
+- reconstruction rules  
+- schema versioning  
+- profile system  
 
+👉 Full spec: [`docs/ssps_protocol.md`](docs/ssps_protocol.md)
 
 ---
-2026 bAItherix, M E Benderyszyn - All Rights Reserved
+
+### **PaxCore v1.0 — Memory Kernel**
+A durable storage layer implementing SSPS.
+
+PaxCore provides:
+
+- atomic snapshot writes  
+- TTL‑based expiration  
+- backend‑agnostic storage (Redis, Postgres, RocksDB)  
+- schema validation  
+- deterministic continuity  
+
+👉 Full spec: [`docs/paxcore_spec.md`](docs/paxcore_spec.md)
+
+---
+
+## Roadmap
+
+The full roadmap is available in:
+
+👉 [`docs/roadmap.md`](docs/roadmap.md)
+
+It includes:
+
+- milestone dependencies  
+- success metrics  
+- interoperability targets  
+- research track  
+- a visual timeline  
+
+---
+
+## Interoperability Targets
+
+The ecosystem is designed to integrate with:
+
+- Python runtimes  
+- Node.js runtimes  
+- LLM APIs (OpenAI, Azure OpenAI, local inference engines)  
+- Agent frameworks (LangChain, Semantic Kernel, custom runtimes)  
+
+These targets may expand based on community needs.
+
+---
+
+## Contributing
+
+Feedback and contributions are welcome.
+
+You can participate through:
+
+- GitHub Issues  
+- GitHub Discussions  
+- Pull Requests  
+- Research collaborations  
+
+Contribution templates are provided for:
+
+- specification proposals  
+- bug reports  
+- profile definitions  
+- backend adapters  
+
+All contributions must align with the principles of minimalism, determinism,
+and privacy.
+
+---
+
+## License
+
+All documents in this repository are:
+
+**© 2026 b.AItherix — All Rights Reserved**
+
+This repository contains **public specifications only**.  
+No proprietary implementation details are included.
+
+---
+
+## About
+
+BECIA, SSPS, and PaxCore are developed by **M.E. Benderyszyn (b.AItherix)**  
+as part of a long‑term effort to define stable, privacy‑aligned,  
+interoperable intelligence architectures for LLM‑based systems.
+
+---
+
