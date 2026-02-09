@@ -21,18 +21,21 @@ No proprietary implementation details are included.
 ---
 
 ## Current Versions
+## Specifications
+
+### Core Documents
 
 | Component | Version | Document |
 |----------|---------|----------|
-| **BECIA** | v4.0 | [`docs/becia_architecture.md`](docs/becia_architecture.md) |
-| **SSPS** | v1.0 | [`docs/ssps_protocol.md`](docs/ssps_protocol.md) |
-| **PaxCore** | v1.0 | [`docs/paxcore_spec.md`](docs/paxcore_spec.md) |
-| **Snapshot Profile** | v4.0 | [`docs/snapshot_profile_becia_v4.md`](docs/snapshot_profile_becia_v4.md) |
-| **Roadmap** | Latest | [`docs/roadmap.md`](docs/roadmap.md) |
-| **Glossary** | Latest | [`docs/glossary.md`](docs/glossary.md) |
+| **BECIA** | v4.0 | [`docs/becia_architecture.md`](./docs/becia_architecture.md) |
+| **SSPS** | v1.0 | [`docs/ssps_protocol.md`](./docs/ssps_protocol.md) |
+| **PaxCore** | v1.0 | [`docs/paxcore_spec.md`](./docs/paxcore_spec.md) |
+| **Snapshot Profile** | v4.0 | [`docs/snapshot_profile_becia_v4.md`](./docs/snapshot_profile_becia_v4.md) |
+| **Roadmap** | Latest | [`docs/roadmap.md`](./docs/roadmap.md) |
+| **Glossary** | Latest | [`docs/glossary.md`](./docs/glossary.md) |
 
 For definitions of all key terms, see:  
-👉 [`docs/glossary.md`](docs/glossary.md)
+👉 [`docs/glossary.md`](./docs/glossary.md)
 
 ---
 
