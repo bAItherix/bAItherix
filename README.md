@@ -99,7 +99,7 @@ A deterministic, layered processing pipeline for LLM‑based agents, defining:
 
 ---
 
-### **SSPS v1.0 — Snapshot Protocol**
+### **SSPS v1.0 — Session State Persistence System**
 A minimal, deterministic, privacy‑aligned protocol for serializing agent state.
 
 SSPS defines:
@@ -115,7 +115,7 @@ SSPS defines:
 ---
 
 ### **PaxCore v1.0 — Memory Kernel**
-A durable storage layer implementing SSPS.
+A durable storage layer implementing SSPS memory snapshots.
 
 PaxCore provides:
 
