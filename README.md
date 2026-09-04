@@ -1,4 +1,6 @@
-## Hi there 👋
+Language is a tool. Precision is a power. 
+
+The description IS the implementation.
 
 <!--
 **bAItherix/bAItherix** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
